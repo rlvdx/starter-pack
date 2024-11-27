@@ -27,14 +27,16 @@ sudo apt install -y \
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 sudo apt install -y build-essential
 
-brew install gcc derailed/k9s/k9s terraform;
-brew install jesseduffield/lazygit/lazygit;
+brew install gcc derailed/k9s/k9s
+brew install jesseduffield/lazygit/lazygit
 
 brew cleanup --quiet --prune=all
 
 # Mise
 curl https://mise.run | sh
 eval "$(/home/user/.local/bin/mise activate bash)"
+
+mise install terraform && mise use terraform
 
 # Packages to install outside of apt
 ## yq
@@ -47,7 +49,7 @@ sudo apt update && sudo apt install -y libcap2-bin vault # because setcap comman
 
 ## Neovim
 ### To get v0.10 (apt gives us 0.9)
-mise install neovim
+mise install neovim && mise use neovim
 
 ### LazyVim
 git clone https://github.com/LazyVim/starter ~/.config/nvim
