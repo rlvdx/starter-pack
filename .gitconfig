@@ -1,0 +1,95 @@
+[core]
+excludesFile = ~/.gitignore_global
+whitespace = -trailing-space
+
+[user]
+user = rlvdx
+name = Raphaël Louvradoux
+
+[gpg]
+format = ssh
+
+[commit]
+gpgsign = true
+
+[push]
+default = upstream
+followTags = true
+
+[diff]
+mnemonicPrefix = true
+renames = true
+wordRegex = .
+submodule = log
+
+[color]
+ui = true
+[color "branch"]
+upstream = cyan
+current = yellow bold
+local = green bold
+remote = cyan bold
+[color "diff"]
+meta = yellow bold
+frag = magenta bold
+old = red bold
+new = green bold
+whitespace = red reverse
+[color "status"]
+added = green bold
+changed = yellow bold
+untracked = red bold
+
+[tag]
+sort = version:refname
+
+[rerere]
+enabled = true
+autoupdate = true
+
+[merge]
+renameLimit = 999999
+conflictStyle = diff3
+
+[fetch]
+recurseSubmodules = on-demand
+
+[grep]
+extendedRegexp = true
+
+[log]
+abbrevCommit = true
+follow = true
+
+[filter "lfs"]
+clean = git-lfs clean %f
+smudge = git-lfs smudge %f
+required = true
+
+[status]
+submoduleSummary = true
+showUntrackedFiles = all
+
+[alias]
+st = status
+br = branch
+ci = commit -m
+co = checkout
+aa = add -A
+last = log -1 HEAD
+lg = log --oneline --decorate --all --graph
+cb = checkout -b
+pom = push origin main
+a = add
+d = diff
+po = push origin
+plom = pull --rebase origin main
+pr = pull-request
+cg = config --global
+cia = commit --amend
+pro = pull --rebase origin
+com = checkout main
+rbm = rebase main
+rbi = "!f() { git rebase -i HEAD~$1; }; f"
+rb = rebase
+m = merge
