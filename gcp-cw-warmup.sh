@@ -66,5 +66,5 @@ rm -rf ~/.config/nvim/.git
 sudo apt install -y luarocks
 
 ## k8s
-curl https://raw.githubusercontent.com/blendle/kns/master/bin/kns -o sudo /usr/local/bin/kns && sudo chmod +x $_
-curl https://raw.githubusercontent.com/blendle/kns/master/bin/ktx -o sudo /usr/local/bin/ktx && sudo chmod +x $_
+sudo curl https://raw.githubusercontent.com/blendle/kns/master/bin/kns -o /usr/local/bin/kns && sudo chmod +x $_
+sudo curl https://raw.githubusercontent.com/blendle/kns/master/bin/ktx -o /usr/local/bin/ktx && sudo chmod +x $_
