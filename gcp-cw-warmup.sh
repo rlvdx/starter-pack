@@ -47,6 +47,15 @@ wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/sha
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install -y libcap2-bin vault # because setcap command not found without libcap
 
+## 1Password
+# Install 1Password CLI
+ARCH="amd64"; \
+    OP_VERSION="v$(curl https://app-updates.agilebits.com/check/1/0/CLI2/en/2.0.0/N -s | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')"; \
+    curl -sSfo op.zip \
+    https://cache.agilebits.com/dist/1P/op2/pkg/"$OP_VERSION"/op_linux_"$ARCH"_"$OP_VERSION".zip \
+    && sudo unzip -od /usr/local/bin/ op.zip \
+    && rm op.zip
+
 ## Neovim
 ### To get v0.10 (apt gives us 0.9)
 mise install neovim && mise use neovim
